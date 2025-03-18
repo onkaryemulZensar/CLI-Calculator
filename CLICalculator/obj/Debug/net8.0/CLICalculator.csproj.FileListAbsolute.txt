@@ -1,0 +1,14 @@
+C:\Users\OY115305\C# .NET Training\Calculator\CLICalculator\obj\Debug\net8.0\CLICalculator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\OY115305\C# .NET Training\Calculator\CLICalculator\obj\Debug\net8.0\CLICalculator.AssemblyInfoInputs.cache
+C:\Users\OY115305\C# .NET Training\Calculator\CLICalculator\obj\Debug\net8.0\CLICalculator.AssemblyInfo.cs
+C:\Users\OY115305\C# .NET Training\Calculator\CLICalculator\obj\Debug\net8.0\CLICalculator.csproj.CoreCompileInputs.cache
+C:\Users\OY115305\C# .NET Training\Calculator\CLICalculator\bin\Debug\net8.0\CLICalculator.exe
+C:\Users\OY115305\C# .NET Training\Calculator\CLICalculator\bin\Debug\net8.0\CLICalculator.deps.json
+C:\Users\OY115305\C# .NET Training\Calculator\CLICalculator\bin\Debug\net8.0\CLICalculator.runtimeconfig.json
+C:\Users\OY115305\C# .NET Training\Calculator\CLICalculator\bin\Debug\net8.0\CLICalculator.dll
+C:\Users\OY115305\C# .NET Training\Calculator\CLICalculator\bin\Debug\net8.0\CLICalculator.pdb
+C:\Users\OY115305\C# .NET Training\Calculator\CLICalculator\obj\Debug\net8.0\CLICalculator.dll
+C:\Users\OY115305\C# .NET Training\Calculator\CLICalculator\obj\Debug\net8.0\refint\CLICalculator.dll
+C:\Users\OY115305\C# .NET Training\Calculator\CLICalculator\obj\Debug\net8.0\CLICalculator.pdb
+C:\Users\OY115305\C# .NET Training\Calculator\CLICalculator\obj\Debug\net8.0\CLICalculator.genruntimeconfig.cache
+C:\Users\OY115305\C# .NET Training\Calculator\CLICalculator\obj\Debug\net8.0\ref\CLICalculator.dll
