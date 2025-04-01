@@ -11,4 +11,4 @@ A simple CLI calculator implemented in C# that supports basic arithmetic operati
 
 ### Running Tests
 
-This project uses [xUnit](https://xunit.net/) for unit testing. To run the unit tests, use the following command:
+This project uses [xUnit](https://xunit.net/) for unit testing.
