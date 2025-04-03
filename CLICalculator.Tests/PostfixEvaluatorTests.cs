@@ -14,6 +14,9 @@ namespace CLICalculator.Tests
         [InlineData(new[] { "10", "2", "/" }, 5)]
         [InlineData(new[] { "3.5", "2", "*" }, 7)]
         [InlineData(new[] { "3", "5", "4", "*", "2", "/", "-" }, -7)]
+        [InlineData(new[] { "2", "3", "^" }, 8)]
+        [InlineData(new[] { "100", "50", "%" }, 50)]
+        [InlineData(new[] { "3", "5", "2", "3", "^", "*", "+" }, 43)]
         public void EvaluatePostfix_ValidInput_ReturnsExpectedResult(string[] input, double expectedResult)
         {
             var result = PostfixEvaluator.EvaluatePostfix(new List<string>(input));
@@ -22,7 +25,7 @@ namespace CLICalculator.Tests
 
         [Theory]
         [InlineData(new[] { "3", "+" }, "Invalid expression. Please check the input.")]
-        [InlineData(new[] { "3", "5", "^" }, "Invalid operator: ^. Supported operators: +, -, *, /")]
+        [InlineData(new[] { "3", "5", "&" }, "Invalid operator: &. Supported operators: +, -, *, /, ^, %")]
         public void EvaluatePostfix_InvalidInput_ThrowsFormatException(string[] input, string expectedMessage)
         {
             var exception = Assert.Throws<FormatException>(() => PostfixEvaluator.EvaluatePostfix(new List<string>(input)));

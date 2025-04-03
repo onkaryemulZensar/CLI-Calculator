@@ -13,7 +13,11 @@ namespace CLICalculator.Tests
         [Theory]
         [InlineData("3 + 5", new[] { "3", "+", "5" })]
         [InlineData("10 / 2", new[] { "10", "/", "2" })]
-        [InlineData("3.5 * 2", new[] { "3.5", "*", "2" })]
+        [InlineData("-2 + 3", new[] { "-2", "+", "3" })]
+        [InlineData("2 - -3", new[] { "2", "-", "-3" })]
+        [InlineData("3 - (+3)", new[] { "3", "-", "(", "+3", ")" })]
+        [InlineData("+2 - 3", new[] { "+2", "-", "3"})]
+        [InlineData("2 * (-1)", new[] { "2", "*", "(", "-1", ")" })]
         public void Tokenize_ValidInput_ReturnsExpectedTokens(string input, string[] expectedTokens)
         {
             var tokens = Tokenizer.Tokenize(input);
@@ -22,7 +26,7 @@ namespace CLICalculator.Tests
 
         [Theory]
         [InlineData("3 + a", "Invalid character input: a, letters are not allowed.")]
-        [InlineData("3 + 5 ^ 2", "Invalid operator: ^. Supported operators: +, -, *, /")]
+        [InlineData("3 + 5 & 2", "Invalid operator: &. Supported operators: +, -, *, /, ^, %")]
         public void Tokenize_InvalidInput_ThrowsFormatException(string input, string expectedMessage)
         {
             var exception = Assert.Throws<FormatException>(() => Tokenizer.Tokenize(input));

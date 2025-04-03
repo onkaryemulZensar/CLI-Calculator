@@ -13,20 +13,32 @@ namespace CLICalculator
             var tokens = new List<string>();
             var number = new StringBuilder();
 
+            bool lastWasOperator = true;
+
             foreach (var ch in expression)
             {
                 if (char.IsDigit(ch) || ch == '.')
                 {
                     number.Append(ch);
+                    lastWasOperator = false;
                 }
-                else if ("+-*/()".Contains(ch))
+                else if ("+-*/%^()".Contains(ch))
                 {
                     if (number.Length > 0)
                     {
                         tokens.Add(number.ToString());
                         number.Clear();
                     }
-                    tokens.Add(ch.ToString());
+
+                    if ((ch == '-' || ch == '+') && lastWasOperator)
+                    {
+                        number.Append(ch);
+                    }
+                    else
+                    {
+                        tokens.Add(ch.ToString());
+                        lastWasOperator = ch != ')';
+                    }
                 }
                 else if (char.IsLetter(ch))
                 {
@@ -34,7 +46,7 @@ namespace CLICalculator
                 }
                 else if (!char.IsWhiteSpace(ch))
                 {
-                    throw new FormatException($"Invalid operator: {ch}. Supported operators: +, -, *, /");
+                    throw new FormatException($"Invalid operator: {ch}. Supported operators: +, -, *, /, ^, %");
                 }
             }
 

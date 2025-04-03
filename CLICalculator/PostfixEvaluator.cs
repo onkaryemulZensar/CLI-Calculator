@@ -8,11 +8,11 @@ namespace CLICalculator
 {
     public static class PostfixEvaluator
     {
-        public static double EvaluatePostfix(List<string> postfix)
+        public static double EvaluatePostfix(List<string> postfixTokens)
         {
             var stack = new Stack<double>();
 
-            foreach (var token in postfix)
+            foreach (var token in postfixTokens)
             {
                 if (double.TryParse(token, out var number))
                 {
@@ -28,14 +28,30 @@ namespace CLICalculator
                     var num2 = stack.Pop();
                     var num1 = stack.Pop();
 
-                    stack.Push(token switch
+                    switch (token)
                     {
-                        "+" => Calculator.Add(num1, num2),
-                        "-" => Calculator.Subtract(num1, num2),
-                        "*" => Calculator.Multiply(num1, num2),
-                        "/" => Calculator.Divide(num1, num2),
-                        _ => throw new FormatException($"Invalid operator: {token}. Supported operators: +, -, *, /")
-                    });
+                        case "+":
+                            stack.Push(Calculator.Add(num1, num2));
+                            break;
+                        case "-":
+                            stack.Push(Calculator.Subtract(num1, num2));
+                            break;
+                        case "*":
+                            stack.Push(Calculator.Multiply(num1, num2));
+                            break;
+                        case "/":
+                            stack.Push(Calculator.Divide(num1, num2));
+                            break;
+                        case "^":
+                            stack.Push(Calculator.Power(num1, num2));
+                            break;
+                        case "%":
+                            stack.Push(Calculator.Percentage(num1, num2));
+                            break;
+                        default:
+                            throw new FormatException($"Invalid operator: {token}. Supported operators: +, -, *, /, ^, %");
+
+                    }
                 }
             }
 

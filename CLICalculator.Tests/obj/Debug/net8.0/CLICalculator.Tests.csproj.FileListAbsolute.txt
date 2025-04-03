@@ -102,3 +102,4 @@ C:\Users\OY115305\C# .NET Training\Calculator\CLICalculator.Tests\bin\Debug\net8
 C:\Users\OY115305\C# .NET Training\Calculator\CLICalculator.Tests\bin\Debug\net8.0\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 C:\Users\OY115305\C# .NET Training\Calculator\CLICalculator.Tests\bin\Debug\net8.0\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 C:\Users\OY115305\C# .NET Training\Calculator\CLICalculator.Tests\bin\Debug\net8.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+C:\Users\OY115305\C# .NET Training\Calculator\CLICalculator.Tests\obj\Debug\net8.0\CLICalculator.Tests.sourcelink.json

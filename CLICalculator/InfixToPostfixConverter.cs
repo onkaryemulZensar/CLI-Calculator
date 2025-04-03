@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,54 +9,61 @@ namespace CLICalculator
 {
     public static class InfixToPostfixConverter
     {
-        public static List<string> InfixToPostfix(List<string> tokens)
+        private static readonly Dictionary<string, int> precedence = new Dictionary<string, int> {
+            { "+", 1 },
+            { "-", 1 },
+            { "*", 2 },
+            { "/", 2 },
+            { "^", 3 },
+            { "%", 4 },
+            { "(", 0 }
+        };
+
+        private static readonly Dictionary<string, bool> rightAssociative = new Dictionary<string, bool> {
+              { "^", true }
+        };
+
+        public static List<string> InfixToPostfix(List<string> infixTokens)
         {
-            var precedence = new Dictionary<string, int>
-            {
-                { "+", 1 },
-                { "-", 1 },
-                { "*", 2 },
-                { "/", 2 },
-                { "(", 0 }
-            };
+            var postfix = new List<string>();
+            var operatorsStack = new Stack<string>();
 
-            var output = new List<string>();
-            var operators = new Stack<string>();
-
-            foreach (var token in tokens)
+            foreach (var token in infixTokens)
             {
                 if (double.TryParse(token, out _))
                 {
-                    output.Add(token);
+                    postfix.Add(token);
                 }
                 else if (token == "(")
                 {
-                    operators.Push(token);
+                    operatorsStack.Push(token);
                 }
                 else if (token == ")")
                 {
-                    while (operators.Peek() != "(")
+                    while (operatorsStack.Peek() != "(")
                     {
-                        output.Add(operators.Pop());
+                        postfix.Add(operatorsStack.Pop());
                     }
-                    operators.Pop();
+                    operatorsStack.Pop();
                 }
                 else
                 {
-                    while (operators.Count > 0 && precedence[operators.Peek()] >= precedence[token])
+                    while (operatorsStack.Count > 0 && precedence.ContainsKey(operatorsStack.Peek()) &&
+                       ((rightAssociative.ContainsKey(token) && rightAssociative[token] && precedence[token] < precedence[operatorsStack.Peek()]) ||
+                        (!rightAssociative.ContainsKey(token) && precedence[token] <= precedence[operatorsStack.Peek()])))
                     {
-                        output.Add(operators.Pop());
+                        postfix.Add(operatorsStack.Pop());
                     }
-                    operators.Push(token);
+                    operatorsStack.Push(token);
                 }
             }
 
-            while (operators.Count > 0)
+            while (operatorsStack.Count > 0)
             {
-                output.Add(operators.Pop());
+                postfix.Add(operatorsStack.Pop());
             }
 
-            return output;
+            return postfix;
         }
     }
 }

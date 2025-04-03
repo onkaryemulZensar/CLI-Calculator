@@ -15,6 +15,9 @@ namespace CLICalculator.Tests
         [InlineData(new[] { "10", "/", "2" }, new[] { "10", "2", "/" })]
         [InlineData(new[] { "3.5", "*", "2" }, new[] { "3.5", "2", "*" })]
         [InlineData(new[] { "3", "-", "5", "*", "4", "/", "2" }, new[] { "3", "5", "4", "*", "2", "/", "-" })]
+        [InlineData(new[] { "2", "^", "3" }, new[] { "2", "3", "^" })]
+        [InlineData(new[] { "100", "%", "50" }, new[] { "100", "50", "%" })]
+        [InlineData(new[] { "3", "+", "5", "*", "2", "^", "3" }, new[] { "3", "5", "2", "3", "^", "*", "+" })]
         public void InfixToPostfix_ValidInput_ReturnsExpectedPostfix(string[] input, string[] expectedPostfix)
         {
             var postfix = InfixToPostfixConverter.InfixToPostfix(new List<string>(input));

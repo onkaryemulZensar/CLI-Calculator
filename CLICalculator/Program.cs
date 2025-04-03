@@ -55,6 +55,7 @@ namespace CLICalculator
                 }
 
                 Console.WriteLine("\nPress any key to continue...");
+
                 if (!isTest)
                 {
                     Console.ReadKey();

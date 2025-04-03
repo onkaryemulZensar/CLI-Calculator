@@ -12,3 +12,4 @@ C:\Users\OY115305\C# .NET Training\Calculator\CLICalculator\obj\Debug\net8.0\ref
 C:\Users\OY115305\C# .NET Training\Calculator\CLICalculator\obj\Debug\net8.0\CLICalculator.pdb
 C:\Users\OY115305\C# .NET Training\Calculator\CLICalculator\obj\Debug\net8.0\CLICalculator.genruntimeconfig.cache
 C:\Users\OY115305\C# .NET Training\Calculator\CLICalculator\obj\Debug\net8.0\ref\CLICalculator.dll
+C:\Users\OY115305\C# .NET Training\Calculator\CLICalculator\obj\Debug\net8.0\CLICalculator.sourcelink.json
