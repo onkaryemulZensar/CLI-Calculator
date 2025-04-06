@@ -11,30 +11,51 @@ namespace CLICalculator
         public static double Add(double a, double b)
         {
             double result = a + b;
-            if (double.IsInfinity(result))
+            
+            if (double.IsPositiveInfinity(result))
             {
-                throw new OverflowException("Addition resulted in an overflow or underflow.");
+                throw new OverflowException("Addition resulted in an overflow.");
             }
+
+            if (double.IsNegativeInfinity(result))
+            {
+                throw new OverflowException("Addition resulted in an underflow.");
+            }
+            
             return result;
         }
 
         public static double Subtract(double a, double b)
         {
             double result = a - b;
-            if (double.IsInfinity(result))
+
+            if (double.IsPositiveInfinity(result))
             {
-                throw new OverflowException("Subtraction resulted in an overflow or underflow.");
+                throw new OverflowException("Subtraction resulted in an overflow.");
             }
+
+            if (double.IsNegativeInfinity(result))
+            {
+                throw new OverflowException("Subtraction resulted in an underflow.");
+            }
+
             return result;
         }
 
         public static double Multiply(double a, double b)
         {
             double result = a * b;
-            if (double.IsInfinity(result))
+
+            if (double.IsPositiveInfinity(result))
             {
-                throw new OverflowException("Multiplication resulted in an overflow or underflow.");
+                throw new OverflowException("Multiplication resulted in an overflow.");
             }
+            
+            if (double.IsNegativeInfinity(result))
+            {
+                throw new OverflowException("Multiplication resulted in an underflow.");
+            }
+            
             return result;
         }
 
@@ -46,10 +67,17 @@ namespace CLICalculator
             }
 
             double result = a / b;
-            if (double.IsInfinity(result))
+
+            if (double.IsPositiveInfinity(result))
             {
-                throw new OverflowException("Division resulted in an overflow or underflow.");
+                throw new OverflowException("Division resulted in an overflow.");
             }
+
+            if (double.IsNegativeInfinity(result))
+            {
+                throw new OverflowException("Division resulted in an underflow.");
+            }
+
             return result;
         }
 
@@ -59,26 +87,41 @@ namespace CLICalculator
             {
                 throw new ArgumentException("0^0 is indeterminate.");
             }
+
             if (a < 0 && b % 1 != 0)
             {
                 throw new ArgumentException("Negative base with fractional exponent results in a complex number.");
             }
 
             double result = Math.Pow(a, b);
-            if (double.IsInfinity(result))
+
+            if (double.IsPositiveInfinity(result))
             {
-                throw new OverflowException("Exponentiation resulted in an overflow or underflow.");
+                throw new OverflowException("Exponentiation resulted in an overflow.");
             }
+
+            if (double.IsNegativeInfinity(result))
+            {
+                throw new OverflowException("Exponentiation resulted in an underflow.");
+            }
+            
             return result;
         }
 
         public static double Percentage(double a, double b)
         {
             double result = a * (b / 100);
-            if (double.IsInfinity(result))
+
+            if (double.IsPositiveInfinity(result))
             {
-                throw new OverflowException("Percentage calculation resulted in an overflow or underflow.");
+                throw new OverflowException("Percentage calculation resulted in an overflow.");
             }
+
+            if (double.IsNegativeInfinity(result))
+            {
+                throw new OverflowException("Percentage calculation resulted in an underflow.");
+            }
+
             return result;
         }
     } 
